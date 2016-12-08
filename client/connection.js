@@ -9,7 +9,7 @@ let create = function (connectionString, bot) {
     let connection = Object.create(Connection);
     connection.bot = bot;
     console.log(`connecting to: ${connectionString}`);
-    connection.ws = new WS(`ws://${connectionString}`);
+    connection.ws = new WS(`${connectionString}`);
     connection.ws.onmessage = event => {
         console.log('receiving data', event.data);
         let dataObject = JSON.parse(event.data);

@@ -1,7 +1,6 @@
 'use strict';
 let Messages = require('./shared/messages/messages');
 let MessageType = require('./shared/messages/messageType');
-let Mnemonic = require('./logic/mnemonic');
 let Brain = require('./logic/brain');
 let Card = require('./shared/deck/card');
 
@@ -26,15 +25,14 @@ let Bot = {
             });
             break;
         case MessageType.REQUEST_TRUMPF.name:
-            let gameMode = this.brain.chooseTrumpf(this.handCards, this.mnemonic, data);
+            let gameMode = this.brain.chooseTrumpf(this.handCards);
             answer = Messages.create(MessageType.CHOOSE_TRUMPF.name, gameMode);
             break;
         case MessageType.REQUEST_CARD.name:
-            let card = this.brain.chooseCard(this.handCards, this.mnemonic, data);
+            let card = this.brain.chooseCard(this.handCards, data);
             answer = Messages.create(MessageType.CHOOSE_CARD.name, card);
             break;
         case MessageType.PLAYED_CARDS.name:
-            this.mnemonic.playedCards(data);
             let lastPlayedCard = data[data.length - 1];
             this.handCards = this.handCards.filter(function (card) {
                 return (card.number !== lastPlayedCard.number || card.color !== lastPlayedCard.color)
@@ -42,15 +40,15 @@ let Bot = {
             break;
         case MessageType.REJECT_CARD.name:
             console.log(" ######   SERVER REJECTED CARD   #######");
-            let pickedCard = this.brain.chooseCard(this.handCards, this.mnemonic, this.mnemonic.cardsAtTable);
+            let pickedCard = this.brain.chooseCard(this.handCards);
             console.log(data);
             console.log(pickedCard);
             console.log(this.handCards);
-            console.log(this.mnemonic.cardsAtTable);
-            console.log(this.mnemonic.gameType.mode + " | " + this.mnemonic.gameType.trumpfColor);
+            console.log(this.brain.cardsAtTable);
+            console.log(this.brain.gameType.mode + " | " + this.brain.gameType.trumpfColor);
             break;
         case MessageType.BROADCAST_GAME_FINISHED.name:
-            this.mnemonic.reset();
+            //Do nothing with that :-)
             break;
         case MessageType.BROADCAST_SESSION_JOINED.name:
             //Do nothing with that :-)
@@ -68,7 +66,7 @@ let Bot = {
             //Do nothing with that :-)
             break;
         case MessageType.BROADCAST_TRUMPF.name:
-            this.mnemonic.gameMode(data);
+            this.brain.gameMode(data);
             break;
         case MessageType.BROADCAST_WINNER_TEAM.name:
             //Do nothing with that :-)
@@ -86,7 +84,6 @@ let create = function (name, sessionName) {
     let bot = Object.create(Bot);
     bot.alias = name;
     bot.sessionName = sessionName || '';
-    bot.mnemonic = Mnemonic.create();
     bot.brain = Brain.create();
     return bot;
 };

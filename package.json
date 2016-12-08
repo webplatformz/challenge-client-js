@@ -6,7 +6,8 @@
   },
   "scripts": {
     "test": "mocha build/**/*.js",
-    "start": "node build/client/app.js"
+    "start": "node build/client/app.js ws://127.0.0.1:3000",
+    "docker": "node build/client/app.js ws://cs:3000"
   },
   "dependencies": {
     "body-parser": "^1.15.2",

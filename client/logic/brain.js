@@ -1,21 +1,28 @@
 'use strict';
 
 let Validation = require('../shared/validation/validation');
+let _ = require('lodash');
+let Card = require('./../shared/deck/card');
 
 let Brain = {
-    chooseTrumpf: function (handcards, mnemonic, isGeschoben) {
+    geschoben: false,
+    chooseTrumpf: function (handcards) {
         let gameType = {
             "mode": "TRUMPF",
             "trumpfColor": "HEARTS"
         };
         return gameType;
     },
-    chooseCard: function (handcards, mnemonic, tableCards) {
-        let validCards = this.getPossibleCards(handcards, mnemonic, tableCards);
+    gameMode: function (gameType) {
+        this.geschoben = gameType.mode === "SCHIEBE"; //just remember if it's a geschoben match
+        this.gameType = gameType;
+    },
+    chooseCard: function (handcards, tableCards) {
+        let validCards = this.getPossibleCards(handcards, tableCards);
         return validCards[0];
     },
-    getPossibleCards: function (handCards, mnemonic, tableCards) {
-        let validation = Validation.create(mnemonic.gameType.mode, mnemonic.gameType.trumpfColor);
+    getPossibleCards: function (handCards, tableCards) {
+        let validation = Validation.create(this.gameType.mode, this.gameType.trumpfColor);
         let possibleCards = handCards.filter(function (card) {
             if (validation.validate(tableCards, handCards, card)) {
                 return true;
