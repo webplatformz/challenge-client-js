@@ -6,7 +6,6 @@
  */
 
 let Validation = require('../shared/validation/validation');
-let _ = require('lodash');
 let Card = require('./../shared/deck/card');
 
 let Brain = {

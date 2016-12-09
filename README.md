@@ -26,7 +26,7 @@ Following tree should give you a brief overview. The **HACK** comment indicates 
 challenge-client-js
 │
 └───build
-│   │   .. //generated after "$ gulp"
+│   │   .. //generated after "$ npm run compile"
 │
 └───client //implementation of the bot
 │   │   app.js //HACK - entry point of your js code... small changes needed
@@ -40,7 +40,6 @@ challenge-client-js
 │       │   .. //This is copied from server and has validation, messages, card etc. included.
 │
 │   Dockerfile //This you might check when working with docker
-│   gulpfile.js //Transpiling and generate build sources
 │   package.json
 │   .. 
 ```
@@ -70,7 +69,6 @@ $ npm install
 
 Starting 1 bot:
 ```sh
-$ gulp
 $ npm start
 ```
 
@@ -84,14 +82,14 @@ $ receiving data {"type":"REQUEST_SESSION_CHOICE","data":[]}
 
 Starting 4 bot's which will play a game (until first team reaches 2500 Points) automatically
 ```sh
-$ gulp
+$ npm run compile
 $ node build/client/app.js ws://127.0.0.1:3000 Bot_Team_A
 $ node build/client/app.js ws://127.0.0.1:3000 Bot_Team_A
 $ node build/client/app.js ws://127.0.0.1:3000 Bot_Team_B
 $ node build/client/app.js ws://127.0.0.1:3000 Bot_Team_B
 ```
 
-For more information check the package.json and gulpfile.js 
+For more information check the package.json 
 
 ### Docker Container
 If you want to run the client in a docker container you can find a Dockerfile in this repo.

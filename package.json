@@ -5,25 +5,17 @@
     "node": "6.x.x"
   },
   "scripts": {
-    "test": "mocha build/**/*.js",
+    "compile": "babel --presets es2015 client --out-dir build/client",
+    "prestart": "npm run compile",
     "start": "node build/client/app.js ws://127.0.0.1:3000",
+    "predocker": "npm run compile",
     "docker": "node build/client/app.js ws://cs:3000"
   },
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "challenge": "git://github.com/webplatformz/challenge#develop",
-    "express": "4.14.0",
-    "gulp": "^3.9.0",
-    "javascript-jass-bot": "0.0.4",
-    "lodash": "^3.10.1",
-    "ws": "^0.8.0"
+    "ws": "1.1.0"
   },
   "devDependencies": {
-    "chai": "^3.3.0",
-    "gulp-babel": "^5.2.1",
-    "gulp-mocha": "^2.1.3",
-    "gulp-watch": "^4.3.5",
-    "mocha": "^2.3.3",
-    "q": "^1.4.1"
+    "babel-cli": "6.18.0",
+    "babel-preset-es2015": "6.18.0"
   }
 }
