@@ -1,5 +1,9 @@
 'use strict';
 
+/*
+ Connection just uses websocket to communicate with the server. After receiving a message it will give it to the bot to handle it properly.
+*/
+
 let WS = require('ws');
 let Messages = require('./shared/messages/messages');
 
@@ -18,7 +22,7 @@ let create = function (connectionString, bot) {
             connection.ws.send(JSON.stringify(response));
         });
     };
-}
+};
 
 module.exports = {
     create
