@@ -68,7 +68,7 @@ $ npm install -g windows-build-tools
 ### Start your own tournament
 To test your bot against other bots, such das the random bot, you need to start your own tournament. 
 
-1. checkout, build and start the challenge server:
+1. checkout, build and start the [**challenge server**](https://github.com/webplatformz/challenge):
 ```sh
 $ npm install
 $ npm start
@@ -83,27 +83,14 @@ $ npm start
 
 5. Join your bots, they should appear on the next page
 
-Install node modules:
+Get the client and compile it [**challenge client js**](https://github.com/webplatformz/challenge-client-js):
 ```sh
 $ npm install
-```
-
-Starting 1 bot:
-```sh
-$ npm start
-```
-
-you should see a response like this:
-```
-$ connecting to: ws://127.0.0.1:3000
-$ receiving data {"type":"REQUEST_PLAYER_NAME"}
-$ MyName: challenge-client-js
-$ receiving data {"type":"REQUEST_SESSION_CHOICE","data":[]}
-```
-
-Starting 4 bot's which will play a game (until first team reaches 2500 Points) automatically
-```sh
 $ npm run compile
+```
+
+Compile and start 4 bot's to see them on the tournament page pic below:
+```sh
 $ node build/client/app.js ws://127.0.0.1:3000 Bot_Team_A
 $ node build/client/app.js ws://127.0.0.1:3000 Bot_Team_A
 $ node build/client/app.js ws://127.0.0.1:3000 Bot_Team_B
