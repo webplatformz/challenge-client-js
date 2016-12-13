@@ -89,7 +89,7 @@ $ npm install
 $ npm run compile
 ```
 
-Compile and start 4 bot's to see them on the tournament page pic below:
+Starting 4 bot to see them on the tournament page pic below:
 ```sh
 $ node build/client/app.js ws://127.0.0.1:3000 Bot_Team_A
 $ node build/client/app.js ws://127.0.0.1:3000 Bot_Team_A
