@@ -1,5 +1,6 @@
 # challenge-client-js
-JavaScript skeleton of a jass-bot communication with [challenge-server](https://github.com/webplatformz/challenge)
+This is a JavaScript client (bot) for the [Jass challenge server](https://github.com/webplatformz/challenge).
+This client allows you to easily develop a bot for the Jass challenge.
 
 ###Wiki (Server):
 https://github.com/webplatformz/challenge/wiki
@@ -8,6 +9,8 @@ https://github.com/webplatformz/challenge/wiki
 If you are an enrolled student in switzerland, you are welcome to participate the **JassChallenge2017** competition in April '17
 
 ---------------------- LINK TO OUR REGTISTRATION PAGE ----------------------
+
+
 
 ## Start hacking
 
@@ -26,7 +29,7 @@ Following tree should give you a brief overview. The **HACK** comment indicates 
 challenge-client-js
 │
 └───build
-│   │   .. //generated after "$ npm run compile"
+│   │   .. //generated after "$ npm run compile or $ npm start"
 │
 └───client //implementation of the bot
 │   │   app.js //HACK - entry point of your js code... small changes needed
@@ -62,6 +65,24 @@ See http://nodejs.org/download/
 $ npm install -g windows-build-tools
 ```
 
+### Start your own tournament
+To test your bot against other bots, such das the random bot, you need to start your own tournament. 
+
+1. checkout, build and start the challenge server:
+```sh
+$ npm install
+$ npm start
+```
+2. Browse to http://localhosthost:3000
+3. Enter some user name: 
+
+![Alt text](doc/images/chooseUsername.PNG?raw=true "Choose a user name")
+4. Enter some tournament name and press **Enter** 
+
+![Alt text](doc/images/createTournament.PNG?raw=true "Choose a user name")
+
+5. Join your bots, they should appear on the next page
+
 Install node modules:
 ```sh
 $ npm install
@@ -88,6 +109,9 @@ $ node build/client/app.js ws://127.0.0.1:3000 Bot_Team_A
 $ node build/client/app.js ws://127.0.0.1:3000 Bot_Team_B
 $ node build/client/app.js ws://127.0.0.1:3000 Bot_Team_B
 ```
+
+![Alt text](doc/images/tournamentPage.PNG?raw=true "Choose a user name")
+
 
 For more information check the package.json 
 
