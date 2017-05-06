@@ -8,7 +8,7 @@ https://github.com/webplatformz/challenge/wiki
 ### JassChallenge2017
 If you are an enrolled student in switzerland, you are welcome to participate the **JassChallenge2017** competition in April '17
 
----------------------- LINK TO OUR REGTISTRATION PAGE ----------------------
+https://jass-challenge.zuehlke.io/
 
 
 
