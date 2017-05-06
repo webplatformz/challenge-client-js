@@ -82,6 +82,10 @@ $ npm start
 ![Alt text](doc/images/createTournament.PNG?raw=true "Choose a user name")
 
 5. Join your bots, they should appear on the next page
+6. Join random strategy bots for testing. In your challenge server directory enter the command:
+`npm run bot:start`
+This will add 4 random bot teams to your tournament.
+
 
 Get the client and compile it [**challenge client js**](https://github.com/webplatformz/challenge-client-js):
 ```sh
