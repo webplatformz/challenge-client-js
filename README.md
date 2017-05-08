@@ -73,7 +73,7 @@ To test your bot against other bots, such das the random bot, you need to start 
 $ npm install
 $ npm start
 ```
-2. Browse to http://localhosthost:3000
+2. Browse to http://localhost:3000
 3. Enter some user name: 
 
 ![Alt text](doc/images/chooseUsername.PNG?raw=true "Choose a user name")
