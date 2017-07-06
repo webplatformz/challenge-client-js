@@ -1,4 +1,4 @@
-FROM node:argon
+FROM node
 
 # Create app directory
 RUN mkdir -p /usr/src/app
@@ -11,5 +11,4 @@ RUN npm install
 # Bundle app source
 COPY . /usr/src/app
 
-EXPOSE 3000
 CMD [ "npm", "run", "docker" ]
